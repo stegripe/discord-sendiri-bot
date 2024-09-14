@@ -1,0 +1,36 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "description": "A template to generate well-configured project base for Stegripe.",
+    "license": "AGPL-3.0",
+    "author": "Stegripe Development <support@stegripe.org>",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stegripe/template.git"
+    },
+    "bugs": {
+        "url": "https://github.com/stegripe/template/issues"
+    },
+    "homepage": "https://github.com/stegripe/template#readme",
+    "main": "dist/index.js",
+    "type": "module",
+    "scripts": {
+        "build": "npm run lint && npm run compile",
+        "compile": "tsc --build tsconfig.json",
+        "lint": "eslint . --ignore-pattern .gitignore",
+        "lint:fix": "npm run lint --fix",
+        "start": "node --es-module-specifier-resolution=node .",
+        "start:dev": "rimraf ./dist && npm run compile && npm start"
+    },
+    "engines": {
+        "node": ">=16.6.0",
+        "npm": ">=7.0.0"
+    },
+    "devDependencies": {
+        "@stegripe/eslint-config": "^1.0.1",
+        "@types/node": "^20.16.5",
+        "eslint": "^9.10.0",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.6.2"
+    }
+}
