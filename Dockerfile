@@ -24,7 +24,7 @@ RUN pnpm prune --production
 # Get ready for production
 FROM ghcr.io/hazmi35/node:21-alpine
 
-LABEL name "template"
+LABEL name "discord-sendiri-bot"
 LABEL maintainer "Stegripe Development <support@stegripe.org>"
 
 # Copy needed files

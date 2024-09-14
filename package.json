@@ -1,26 +1,26 @@
 {
-    "name": "template",
+    "name": "discord-sendiri-bot",
     "version": "1.0.0",
-    "description": "A template to generate well-configured project base for Stegripe.",
+    "description": "Mau ngapain lihat ke sini?",
     "license": "AGPL-3.0",
     "author": "Stegripe Development <support@stegripe.org>",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/stegripe/template.git"
+        "url": "git+https://github.com/stegripe/discord-sendiri-bot.git"
     },
     "bugs": {
-        "url": "https://github.com/stegripe/template/issues"
+        "url": "https://github.com/stegripe/discord-sendiri-bot/issues"
     },
-    "homepage": "https://github.com/stegripe/template#readme",
+    "homepage": "https://github.com/stegripe/discord-sendiri-bot#readme",
     "main": "dist/index.js",
     "type": "module",
     "scripts": {
-        "build": "npm run lint && npm run compile",
+        "build": "pnpm run lint && pnpm run compile",
         "compile": "tsc --build tsconfig.json",
         "lint": "eslint . --ignore-pattern .gitignore",
-        "lint:fix": "npm run lint --fix",
-        "start": "node --es-module-specifier-resolution=node .",
-        "start:dev": "rimraf ./dist && npm run compile && npm start"
+        "lint:fix": "pnpm run lint --fix",
+        "start": "node --es-module-specifier-resolution=node -r dotenv/config . | pino-pretty -t \"SYS:yyyy-MM-dd HH:mm:ss\"",
+        "start:dev": "rimraf ./dist && pnpm run compile && pnpm start"
     },
     "engines": {
         "node": ">=16.6.0",
@@ -28,9 +28,20 @@
     },
     "devDependencies": {
         "@stegripe/eslint-config": "^1.0.1",
-        "@types/node": "^20.16.5",
+        "@types/node": "^20.16.3",
         "eslint": "^9.10.0",
         "rimraf": "^6.0.1",
         "typescript": "^5.6.2"
+    },
+    "dependencies": {
+        "date-fns": "^3.6.0",
+        "discord-api-types": "^0.37.100",
+        "discord.js-selfbot-v13": "^3.3.0",
+        "dotenv": "^16.4.5",
+        "got": "^14.4.2",
+        "pino": "^9.3.2",
+        "pino-pretty": "^11.2.2",
+        "tree-kill": "^1.2.2",
+        "tslib": "^2.7.0"
     }
 }

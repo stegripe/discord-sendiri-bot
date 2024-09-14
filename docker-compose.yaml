@@ -8,8 +8,8 @@ x-common-general: &common-general
 services:
   sate:
     <<: *common-general
-    image: ghcr.io/stegripe/template:latest-dev
-    container_name: template
+    image: ghcr.io/stegripe/discord-sendiri-bot:latest-dev
+    container_name: discord-sendiri-bot
     env_file: .env
     networks:
       - net

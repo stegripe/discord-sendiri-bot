@@ -3,7 +3,7 @@ name: Lint code and compile setup script
 on:
   push:
     branches:
-      - main
+      - "**"
   pull_request:
     branches:
       - "**"

@@ -1,3 +1,3 @@
-# @stegripe/template
+# @stegripe/discord-sendiri-bot
 
-A template to generate well-configured project base for Stegripe.
+Mau ngapain lihat ke sini?
