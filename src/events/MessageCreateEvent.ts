@@ -9,17 +9,17 @@ export class MessageCreateEvent extends BaseEvent {
 
         if (message.content.startsWith(this.client.config.prefix)) {
             await this.client.commands.handle(message);
-            return;
+            // return;
         }
 
-        if (this.getUserFromMention(message.content)?.id === this.client.user?.id) {
+        /* if (this.getUserFromMention(message.content)?.id === this.client.user?.id) {
             try {
                 await message.reply(`Hello! My prefix is \`${this.client.config.prefix}\`.`);
             } catch (error) {
                 this.client.logger.error("PROMISE_ERR:", error);
                 console.log(error);
             }
-        }
+        } */
     }
 
     private getUserFromMention(mention: string): User | undefined {
