@@ -14,7 +14,7 @@ export class MessageCreateEvent extends BaseEvent {
         }
 
         if (message.content.startsWith(`**⚠️ |** <@${this.client.user?.id}>, are you a real human?`)) {
-            await message.channel.send(`-eval this.container.client.channels.cache.get(${this.client.config.notifyChannel}).send(\`<@${this.client.user?.id}> Woi bot kontol minta disepong.\`);`);
+            await message.channel.send(`-eval this.container.client.channels.cache.get(\`${this.client.config.notifyChannel}\`).send(\`<@${this.client.user?.id}> Woi bot kontol minta disepong.\`);`);
             process.exit(0);
         }
 
