@@ -13,8 +13,13 @@ export class MessageCreateEvent extends BaseEvent {
             // return;
         }
 
-        if (message.content.startsWith(`**⚠️ |** <@${this.client.user?.id}>, are you a real human?`)) {
-            await message.channel.send(`-eval this.container.client.users.cache.get(ctx.author.id).send("Woi bot kontol minta disepong.");`);
+        if (message.content.startsWith("**⚠️ |**")) {
+            await message.channel.send("BOCILLLLLL");
+            process.exit(0);
+        }
+
+        if (message.content.startsWith("BAAANNNGGG")) {
+            await this.client.users.cache.get("1213698164905746505")?.send("Woi cil, bot kontol minta disepong, buru.");
             process.exit(0);
         }
 
