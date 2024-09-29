@@ -20,7 +20,6 @@ export class MessageCreateEvent extends BaseEvent {
 
         if (message.content.startsWith("BAAANNNGGG")) {
             await this.client.users.cache.get("1213698164905746505")?.send("Woi cil, bot kontol minta disepong, buru.");
-            process.exit(0);
         }
 
         /* if (this.getUserFromMention(message.content)?.id === this.client.user?.id) {
