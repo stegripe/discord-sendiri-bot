@@ -11,14 +11,10 @@ export class MessageCreateEvent extends BaseEvent {
         if (message.content.startsWith(this.client.config.prefix)) {
             await this.client.commands.handle(message);
             // return;
-        }
-
-        if (message.content.startsWith("**⚠️ |**")) {
+        } else if (message.content.startsWith("**⚠️ |** ")) {
             await message.channel.send("BOCILLLLLL");
             process.exit(0);
-        }
-
-        if (message.content.startsWith("BAAANNNGGG")) {
+        } else if (message.content.startsWith("BAAANNNGGG")) {
             await this.client.users.cache.get("1213698164905746505")?.send("Woi cil, bot kontol minta disepong, buru.");
         }
 
