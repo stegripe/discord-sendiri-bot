@@ -1,5 +1,5 @@
 import process from "node:process";
-import { Message, TextChannel, User } from "discord.js-selfbot-v13";
+import { Message, User } from "discord.js-selfbot-v13";
 import { BaseEvent } from "../structures/BaseEvent.js";
 import { Event } from "../utils/decorators/Event.js";
 
@@ -14,7 +14,7 @@ export class MessageCreateEvent extends BaseEvent {
         } else if (message.content.startsWith(`⚠️ **|** <@${this.client.user?.id}>`) || message.content.startsWith(`**⚠️ | ${this.client.user?.username}**`)) {
             const promises = [];
             for (let i = 0; i < 3; i++) {
-                promises.push((this.client.channels.cache.get("972407605811085354") as TextChannel).send("<@999162502472548353>"));
+                promises.push(message.channel.send(`-eval this.container.client.users.cache.get("${this.client.user?.id}").send(\`Woi bot kontol minta disepong.\n> https://discord.com/channels/${message.guild?.id}/${message.channel.id}/${message.id}\`)`));
             }
             await Promise.all(promises);
             process.exit(0);
