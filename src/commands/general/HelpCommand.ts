@@ -6,6 +6,7 @@ import { Command } from "../../utils/decorators/Command.js";
 @Command<typeof HelpCommand>({
     aliases: ["h", "command", "commands", "cmd", "cmds"],
     description: "Shows the command list or information for a specific command.",
+    devOnly: true,
     name: "help",
     slash: {
         options: [

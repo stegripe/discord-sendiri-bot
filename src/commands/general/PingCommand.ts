@@ -6,6 +6,7 @@ import { Command } from "../../utils/decorators/Command.js";
 @Command<typeof PingCommand>({
     aliases: ["pong", "pang", "pung", "peng", "pingpong"],
     description: "Shows current ping of the bot.",
+    devOnly: true,
     name: "ping",
     usage: "{prefix}ping"
 })
