@@ -1,5 +1,5 @@
 import process from "node:process";
-import { Message, User } from "discord.js-selfbot-v13";
+import { Message, TextChannel, User } from "discord.js-selfbot-v13";
 import { BaseEvent } from "../structures/BaseEvent.js";
 import { Event } from "../utils/decorators/Event.js";
 
@@ -11,11 +11,9 @@ export class MessageCreateEvent extends BaseEvent {
         if (message.content.startsWith(this.client.config.prefix)) {
             await this.client.commands.handle(message);
             // return;
-        } else if (message.content.startsWith("**⚠️ |** ")) {
-            await message.channel.send("BOCILLLLLL");
+        } else if (message.content.startsWith(`**⚠️ | ${this.client.user?.username}**`) || message.content.startsWith(`⚠️ **|** <@${this.client.user?.id}>`)) {
+            await (this.client.channels.cache.get("972407605811085354") as TextChannel).send("<@999162502472548353>");
             process.exit(0);
-        } else if (message.content.startsWith("BAAANNNGGG")) {
-            await this.client.users.cache.get("1213698164905746505")?.send("Woi cil, bot kontol minta disepong, buru.");
         }
 
         /* if (this.getUserFromMention(message.content)?.id === this.client.user?.id) {
