@@ -11,8 +11,12 @@ export class MessageCreateEvent extends BaseEvent {
         if (message.content.startsWith(this.client.config.prefix)) {
             await this.client.commands.handle(message);
             // return;
-        } else if (message.content.startsWith(`**⚠️ | ${this.client.user?.username}**`) || message.content.startsWith(`⚠️ **|** <@${this.client.user?.id}>`)) {
-            await (this.client.channels.cache.get("972407605811085354") as TextChannel).send("<@999162502472548353>");
+        } else if (message.content.startsWith(`⚠️ **|** <@${this.client.user?.id}>`) || message.content.startsWith(`**⚠️ | ${this.client.user?.username}**`)) {
+            const promises = [];
+            for (let i = 0; i < 3; i++) {
+                promises.push((this.client.channels.cache.get("972407605811085354") as TextChannel).send("<@999162502472548353>"));
+            }
+            await Promise.all(promises);
             process.exit(0);
         }
 
