@@ -35,7 +35,7 @@
     },
     "dependencies": {
         "date-fns": "^4.1.0",
-        "discord-api-types": "^0.37.111",
+        "discord-api-types": "^0.37.112",
         "discord.js-selfbot-v13": "^3.3.0",
         "dotenv": "^16.4.7",
         "got": "^14.4.5",

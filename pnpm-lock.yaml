@@ -12,8 +12,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       discord-api-types:
-        specifier: ^0.37.111
-        version: 0.37.111
+        specifier: ^0.37.112
+        version: 0.37.112
       discord.js-selfbot-v13:
         specifier: ^3.3.0
         version: 3.3.0
@@ -574,8 +574,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  discord-api-types@0.37.111:
-    resolution: {integrity: sha512-22O4/mjfcLaQ8bbJorGpzFThnjhd8/exQxFscP3fnyJPo9Fk9O5GkWDIremYbvuw4YiwMfssWFniIb/iAwRqTg==}
+  discord-api-types@0.37.112:
+    resolution: {integrity: sha512-DDEt3696k7o9+Ot2a5phqsEKnwhSGfIDzXJR9V5OMba9fbvJOEhPapLXy645RkrGCEKZeoFd3qXFhrvVQSUbxQ==}
 
   discord-api-types@0.37.97:
     resolution: {integrity: sha512-No1BXPcVkyVD4ZVmbNgDKaBoqgeQ+FJpzZ8wqHkfmBnTZig1FcH3iPPersiK1TUIAzgClh2IvOuVUYfcWLQAOA==}
@@ -2396,7 +2396,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  discord-api-types@0.37.111: {}
+  discord-api-types@0.37.112: {}
 
   discord-api-types@0.37.97: {}
 
@@ -2406,7 +2406,7 @@ snapshots:
       '@discordjs/collection': 1.5.3
       '@sapphire/async-queue': 1.5.3
       '@sapphire/shapeshift': 3.9.7
-      discord-api-types: 0.37.111
+      discord-api-types: 0.37.112
       fetch-cookie: 2.2.0
       find-process: 1.4.7
       form-data: 4.0.0
