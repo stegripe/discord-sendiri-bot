@@ -12,8 +12,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       discord-api-types:
-        specifier: ^0.37.111
-        version: 0.37.111
+        specifier: ^0.37.119
+        version: 0.37.119
       discord.js-selfbot-v13:
         specifier: ^3.3.0
         version: 3.3.0
@@ -21,11 +21,11 @@ importers:
         specifier: ^16.4.7
         version: 16.4.7
       got:
-        specifier: ^14.4.5
-        version: 14.4.5
+        specifier: ^14.4.6
+        version: 14.4.6
       pino:
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^9.6.0
+        version: 9.6.0
       pino-pretty:
         specifier: ^13.0.0
         version: 13.0.0
@@ -40,8 +40,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(@stylistic/eslint-plugin@2.3.0(eslint@9.14.0)(typescript@5.6.3))(eslint-config-prettier@9.1.0(eslint@9.14.0))(eslint-import-resolver-typescript@3.6.1)(eslint-plugin-import-x@3.0.1(eslint@9.14.0)(typescript@5.6.3))(eslint-plugin-jsdoc@48.7.0(eslint@9.14.0))(eslint-plugin-n@17.9.0(eslint@9.14.0))(eslint-plugin-promise@6.4.0(eslint@9.14.0))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.14.0))(eslint@9.14.0)(globals@15.8.0)(typescript-eslint@7.16.1(eslint@9.14.0)(typescript@5.6.3))(typescript@5.6.3)
       '@types/node':
-        specifier: ^22.10.2
-        version: 22.10.2
+        specifier: ^22.13.5
+        version: 22.13.5
       eslint:
         specifier: ^9.14.0
         version: 9.14.0
@@ -257,8 +257,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
+  '@types/node@22.13.5':
+    resolution: {integrity: sha512-+lTU0PxZXn0Dr1NBtC7Y8cR21AJr87dLLU953CWA6pMxxv/UDc7jYAY90upcrie1nRcD6XNG5HOYEDtgW5TxAg==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -574,8 +574,8 @@ packages:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
 
-  discord-api-types@0.37.111:
-    resolution: {integrity: sha512-22O4/mjfcLaQ8bbJorGpzFThnjhd8/exQxFscP3fnyJPo9Fk9O5GkWDIremYbvuw4YiwMfssWFniIb/iAwRqTg==}
+  discord-api-types@0.37.119:
+    resolution: {integrity: sha512-WasbGFXEB+VQWXlo6IpW3oUv73Yuau1Ig4AZF/m13tXcTKnMpc/mHjpztIlz4+BM9FG9BHQkEXiPto3bKduQUg==}
 
   discord-api-types@0.37.97:
     resolution: {integrity: sha512-No1BXPcVkyVD4ZVmbNgDKaBoqgeQ+FJpzZ8wqHkfmBnTZig1FcH3iPPersiK1TUIAzgClh2IvOuVUYfcWLQAOA==}
@@ -927,8 +927,8 @@ packages:
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
-  got@14.4.5:
-    resolution: {integrity: sha512-sq+uET8TnNKRNnjEOPJzMcxeI0irT8BBNmf+GtZcJpmhYsQM1DSKmCROUjPWKsXZ5HzwD5Cf5/RV+QD9BSTxJg==}
+  got@14.4.6:
+    resolution: {integrity: sha512-rnhwfM/PhMNJ1i17k3DuDqgj0cKx3IHxBKVv/WX1uDKqrhi2Gv3l7rhPThR/Cc6uU++dD97W9c8Y0qyw9x0jag==}
     engines: {node: '>=20'}
 
   graceful-fs@4.2.11:
@@ -1361,8 +1361,8 @@ packages:
   pino-std-serializers@7.0.0:
     resolution: {integrity: sha512-e906FRY0+tV27iq4juKzSYPbUj2do2X2JX4EzSca1631EB2QJQUqGbDuERal7LCtOpxl6x3+nvo9NPZcmjkiFA==}
 
-  pino@9.5.0:
-    resolution: {integrity: sha512-xSEmD4pLnV54t0NOUN16yCl7RIB1c5UUOse5HSyEXtBp+FgFQyPeDutc+Q2ZO7/22vImV7VfEjH/1zV2QuqvYw==}
+  pino@9.6.0:
+    resolution: {integrity: sha512-i85pKRCt4qMjZ1+L7sy2Ag4t1atFcdbEt76+7iRJn1g2BvsnRMGu9p8pivl9fs63M2kF/A0OacFZhTub+m/qMg==}
     hasBin: true
 
   pluralize@8.0.0:
@@ -2046,7 +2046,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@22.10.2':
+  '@types/node@22.13.5':
     dependencies:
       undici-types: 6.20.0
 
@@ -2396,7 +2396,7 @@ snapshots:
     dependencies:
       path-type: 4.0.0
 
-  discord-api-types@0.37.111: {}
+  discord-api-types@0.37.119: {}
 
   discord-api-types@0.37.97: {}
 
@@ -2406,7 +2406,7 @@ snapshots:
       '@discordjs/collection': 1.5.3
       '@sapphire/async-queue': 1.5.3
       '@sapphire/shapeshift': 3.9.7
-      discord-api-types: 0.37.111
+      discord-api-types: 0.37.119
       fetch-cookie: 2.2.0
       find-process: 1.4.7
       form-data: 4.0.0
@@ -2917,7 +2917,7 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
-  got@14.4.5:
+  got@14.4.6:
     dependencies:
       '@sindresorhus/is': 7.0.1
       '@szmarczak/http-timer': 5.0.1
@@ -3309,7 +3309,7 @@ snapshots:
 
   pino-std-serializers@7.0.0: {}
 
-  pino@9.5.0:
+  pino@9.6.0:
     dependencies:
       atomic-sleep: 1.0.0
       fast-redact: 3.5.0
