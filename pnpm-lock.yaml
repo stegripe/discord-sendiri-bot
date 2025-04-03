@@ -40,8 +40,8 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1(@stylistic/eslint-plugin@2.3.0(eslint@9.14.0)(typescript@5.6.3))(eslint-config-prettier@9.1.0(eslint@9.14.0))(eslint-import-resolver-typescript@3.6.1)(eslint-plugin-import-x@3.0.1(eslint@9.14.0)(typescript@5.6.3))(eslint-plugin-jsdoc@48.7.0(eslint@9.14.0))(eslint-plugin-n@17.9.0(eslint@9.14.0))(eslint-plugin-promise@6.4.0(eslint@9.14.0))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.14.0))(eslint@9.14.0)(globals@15.8.0)(typescript-eslint@7.16.1(eslint@9.14.0)(typescript@5.6.3))(typescript@5.6.3)
       '@types/node':
-        specifier: ^22.13.17
-        version: 22.13.17
+        specifier: ^22.14.0
+        version: 22.14.0
       eslint:
         specifier: ^9.14.0
         version: 9.14.0
@@ -257,8 +257,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@22.13.17':
-    resolution: {integrity: sha512-nAJuQXoyPj04uLgu+obZcSmsfOenUg6DxPKogeUy6yNCFwWaj5sBF8/G/pNo8EtBJjAfSVgfIlugR/BCOleO+g==}
+  '@types/node@22.14.0':
+    resolution: {integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1732,8 +1732,8 @@ packages:
   unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
 
-  undici-types@6.20.0:
-    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
   universalify@0.2.0:
     resolution: {integrity: sha512-CJ1QgKmNg3CwvAv/kOFmtnEN05f0D/cn9QntgNOQlQF9dgvVTHj3t+8JPdjqawCHk7V/KA+fbUqzZ9XWhcqPUg==}
@@ -2046,9 +2046,9 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@22.13.17':
+  '@types/node@22.14.0':
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 6.21.0
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -3672,7 +3672,7 @@ snapshots:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
 
-  undici-types@6.20.0: {}
+  undici-types@6.21.0: {}
 
   universalify@0.2.0: {}
 
