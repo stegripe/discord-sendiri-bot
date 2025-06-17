@@ -1,3 +1,3 @@
-# @stegripe/discord-sendiri-bot
+# discord-sendiri-bot
 
-Mau ngapain lihat ke sini?
+A Discord self-bot.
