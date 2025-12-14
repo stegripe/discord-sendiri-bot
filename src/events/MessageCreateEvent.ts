@@ -11,22 +11,22 @@ export class MessageCreateEvent extends BaseEvent {
         if (message.content.startsWith(this.client.config.prefix)) {
             await this.client.commands.handle(message);
             // return;
-        } else if (message.content.startsWith(`⚠️ **|** <@${this.client.user?.id}>`) || message.content.startsWith(`**⚠️ | ${this.client.user?.username}**`)) {
+        } else if (message.content.startsWith(`⚠️ **|** <@${this.client.user?.id}>`) || message.content.startsWith(`**⚠️ |** <@${this.client.user?.id}>`) || message.content.startsWith(`**⚠️ | ${this.client.user?.username}**`)) {
             const promises = [];
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 1; i++) {
                 promises.push((this.client.channels.cache.get("972418015050211338") as TextChannel).send(`-eval this.container.client.users.cache.get("${this.client.user?.id}").send(\`Woi, bot kontol minta disepong.\n> Scroll: https://discord.com/channels/${message.guild?.id}/${message.channel.id}/${message.id}\`)`));
             }
             await Promise.all(promises);
             process.exit(0);
-        } else if (message.content.startsWith("BAAANNNGGG")) {
+        }/* else if (message.content.startsWith("BAAANNNGGG")) {
             const promises = [];
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 1; i++) {
                 promises.push((this.client.channels.cache.get("972418015050211338") as TextChannel).send(`-eval this.container.client.users.cache.get("${message.author.id}").send(\`Woi, bot kontol minta disepong.\n> Scroll: https://discord.com/channels/${message.guild?.id}/${message.channel.id}/${message.id}\`)`));
             }
             await Promise.all(promises);
         }
 
-        /* if (this.getUserFromMention(message.content)?.id === this.client.user?.id) {
+        if (this.getUserFromMention(message.content)?.id === this.client.user?.id) {
             try {
                 await message.reply(`Hello! My prefix is \`${this.client.config.prefix}\`.`);
             } catch (error) {
