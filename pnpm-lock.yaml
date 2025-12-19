@@ -24,8 +24,8 @@ importers:
         specifier: ^14.6.5
         version: 14.6.5
       pino:
-        specifier: 9.7.0
-        version: 9.7.0
+        specifier: 9.14.0
+        version: 9.14.0
       pino-pretty:
         specifier: ^13.1.3
         version: 13.1.3
@@ -38,7 +38,7 @@ importers:
     devDependencies:
       '@stegripe/eslint-config':
         specifier: ^1.0.1
-        version: 1.0.1(@stylistic/eslint-plugin@2.13.0(eslint@9.14.0)(typescript@5.9.3))(eslint-config-prettier@9.1.2(eslint@9.14.0))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint@9.14.0))(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-jsdoc@48.11.0(eslint@9.14.0))(eslint-plugin-n@17.23.1(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-promise@6.6.0(eslint@9.14.0))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.14.0))(eslint@9.14.0)(globals@14.0.0)(typescript-eslint@7.18.0(eslint@9.14.0)(typescript@5.9.3))(typescript@5.9.3)
+        version: 1.0.1(@stylistic/eslint-plugin@2.13.0(eslint@9.14.0)(typescript@5.9.3))(eslint-config-prettier@9.1.2(eslint@9.14.0))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint@9.14.0))(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-jsdoc@48.11.0(eslint@9.14.0))(eslint-plugin-n@17.23.1(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-promise@6.6.0(eslint@9.14.0))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.14.0))(eslint@9.14.0)(globals@15.15.0)(typescript-eslint@7.18.0(eslint@9.14.0)(typescript@5.9.3))(typescript@5.9.3)
       '@types/node':
         specifier: ^24.10.4
         version: 24.10.4
@@ -198,6 +198,9 @@ packages:
 
   '@otplib/preset-v11@12.0.1':
     resolution: {integrity: sha512-9hSetMI7ECqbFiKICrNa4w70deTUfArtwXykPUvSHWOdzOlfa9ajglu7mNCntlvxycTiOAXkQGwjQCzzDEMRMg==}
+
+  '@pinojs/redact@0.4.0':
+    resolution: {integrity: sha512-k2ENnmBugE/rzQfEcdWHcCY+/FM3VLzH9cYEsbdsoqrvzAKRhUZeRNhAZvB8OitQJ1TBed3yqWtdjzS6wJKBwg==}
 
   '@pkgr/core@0.1.2':
     resolution: {integrity: sha512-fdDH1LSGfZdTH2sxdpVMw31BanV28K/Gry0cVFxaNP77neJSkd82mM8ErPNYs9e+0O7SdHBLTDzDgwUuy18RnQ==}
@@ -805,10 +808,6 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
-  fast-redact@3.5.0:
-    resolution: {integrity: sha512-dwsoQlS7h9hMeYUq1W++23NDcBLV4KqONnITDV9DjfS3q1SgDGVrBdvvTLUotWtPSD7asWDV9/CmsZPy8Hf70A==}
-    engines: {node: '>=6'}
-
   fast-safe-stringify@2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
 
@@ -1221,8 +1220,8 @@ packages:
   pino-std-serializers@7.0.0:
     resolution: {integrity: sha512-e906FRY0+tV27iq4juKzSYPbUj2do2X2JX4EzSca1631EB2QJQUqGbDuERal7LCtOpxl6x3+nvo9NPZcmjkiFA==}
 
-  pino@9.7.0:
-    resolution: {integrity: sha512-vnMCM6xZTb1WDmLvtG2lE/2p+t9hDEIvTWJsu6FejkE62vB7gDhvzrpFR4Cw2to+9JNQxVnkAKVPA1KPB98vWg==}
+  pino@9.14.0:
+    resolution: {integrity: sha512-8OEwKp5juEvb/MjpIc4hjqfgCNysrS94RIOMXYvpYCdm/jglrKEiAYmiumbmGhCvs+IcInsphYDFwqrjr7398w==}
     hasBin: true
 
   pluralize@8.0.0:
@@ -1782,6 +1781,8 @@ snapshots:
       '@otplib/plugin-crypto': 12.0.1
       '@otplib/plugin-thirty-two': 12.0.1
 
+  '@pinojs/redact@0.4.0': {}
+
   '@pkgr/core@0.1.2': {}
 
   '@sapphire/async-queue@1.5.5': {}
@@ -1797,7 +1798,7 @@ snapshots:
 
   '@sindresorhus/is@7.1.1': {}
 
-  '@stegripe/eslint-config@1.0.1(@stylistic/eslint-plugin@2.13.0(eslint@9.14.0)(typescript@5.9.3))(eslint-config-prettier@9.1.2(eslint@9.14.0))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint@9.14.0))(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-jsdoc@48.11.0(eslint@9.14.0))(eslint-plugin-n@17.23.1(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-promise@6.6.0(eslint@9.14.0))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.14.0))(eslint@9.14.0)(globals@14.0.0)(typescript-eslint@7.18.0(eslint@9.14.0)(typescript@5.9.3))(typescript@5.9.3)':
+  '@stegripe/eslint-config@1.0.1(@stylistic/eslint-plugin@2.13.0(eslint@9.14.0)(typescript@5.9.3))(eslint-config-prettier@9.1.2(eslint@9.14.0))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint@9.14.0))(eslint-plugin-import-x@3.1.0(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-jsdoc@48.11.0(eslint@9.14.0))(eslint-plugin-n@17.23.1(eslint@9.14.0)(typescript@5.9.3))(eslint-plugin-promise@6.6.0(eslint@9.14.0))(eslint-plugin-tsdoc@0.3.0)(eslint-plugin-unicorn@54.0.0(eslint@9.14.0))(eslint@9.14.0)(globals@15.15.0)(typescript-eslint@7.18.0(eslint@9.14.0)(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
       '@stylistic/eslint-plugin': 2.13.0(eslint@9.14.0)(typescript@5.9.3)
       eslint: 9.14.0
@@ -1809,7 +1810,7 @@ snapshots:
       eslint-plugin-promise: 6.6.0(eslint@9.14.0)
       eslint-plugin-tsdoc: 0.3.0
       eslint-plugin-unicorn: 54.0.0(eslint@9.14.0)
-      globals: 14.0.0
+      globals: 15.15.0
       typescript: 5.9.3
       typescript-eslint: 7.18.0(eslint@9.14.0)(typescript@5.9.3)
 
@@ -2450,8 +2451,6 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-redact@3.5.0: {}
-
   fast-safe-stringify@2.1.1: {}
 
   fastq@1.19.1:
@@ -2828,10 +2827,10 @@ snapshots:
 
   pino-std-serializers@7.0.0: {}
 
-  pino@9.7.0:
+  pino@9.14.0:
     dependencies:
+      '@pinojs/redact': 0.4.0
       atomic-sleep: 1.0.0
-      fast-redact: 3.5.0
       on-exit-leak-free: 2.1.2
       pino-abstract-transport: 2.0.0
       pino-std-serializers: 7.0.0
