@@ -60,7 +60,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
                     this.client.logger.info(`Command ${command.meta.name} from ${cf} category is now loaded.`);
                     if (command.meta.disable === true) disabled++;
                 } catch (error) {
-                    this.client.logger.error(`Error occured while loading ${file}: ${(error as Error).message}`);
+                    this.client.logger.error({ error, file }, "Error occurred while loading command");
                 }
             }
 
