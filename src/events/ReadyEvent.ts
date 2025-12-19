@@ -8,7 +8,7 @@ export class ReadyEvent extends BaseEvent {
     public async execute(): Promise<void> {
         await this.doPresence();
         this.client.logger.info(await this.formatString("{tag} is ready to serve {userCount} users on {guildCount} guilds with " +
-        "{textChannelCount} text channels and {voiceChannelCount} voice channels."));
+            "{textChannelCount} text channels and {voiceChannelCount} voice channels."));
     }
 
     private async formatString(text: string): Promise<string> {
