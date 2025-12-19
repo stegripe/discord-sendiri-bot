@@ -53,7 +53,7 @@ export class EvalCommand extends BaseCommand {
             try {
                 await ctx.reply(evalMessage);
             } catch (error) {
-                this.client.logger.error("PROMISE_ERR:", error);
+                this.client.logger.error({ error }, "PROMISE_ERR");
             }
         } catch (error_) {
             const cleaned = this.clean(String(error_));
@@ -66,7 +66,7 @@ export class EvalCommand extends BaseCommand {
             try {
                 await ctx.reply(evalMessage);
             } catch (error__) {
-                this.client.logger.error("PROMISE_ERR:", error__);
+                this.client.logger.error({ error: error__ }, "PROMISE_ERR");
             }
         }
     }

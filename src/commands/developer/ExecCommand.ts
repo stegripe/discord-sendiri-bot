@@ -24,7 +24,7 @@ export class ExecCommand extends BaseCommand {
         try {
             const execRes = await execPromise(ctx.args.join(" "), { encoding: "utf8" });
             const pages = ExecCommand.paginate(execRes.stdout);
-            for await (const page of pages) {
+            for (const page of pages) {
                 await ctx.channel?.send(`\`\`\`\n${page}\`\`\``);
             }
         } catch (error) {

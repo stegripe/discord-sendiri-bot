@@ -21,10 +21,10 @@ const manager = new ShardingManager(path.resolve(path.dirname(fileURLToPath(impo
 try {
     await manager.on("shardCreate", shard => {
         log.info(`Shard #${shard.id} has spawned.`);
-        shard.on("disconnect", () => log.warn("SHARD_DISCONNECTED: ", { stack: `Shard #${shard.id} has disconnected.` }))
-            .on("reconnecting", () => log.info("SHARD_RECONNECTING: ", { stack: `Shard #${shard.id} is reconnecting.` }));
+        shard.on("disconnect", () => log.warn({ stack: `Shard #${shard.id} has disconnected.` }, "SHARD_DISCONNECTED"))
+            .on("reconnecting", () => log.info({ stack: `Shard #${shard.id} is reconnecting.` }, "SHARD_RECONNECTING"));
         if (manager.shards.size === manager.totalShards) log.info("All shards are spawned successfully.");
     }).spawn();
 } catch (error) {
-    log.error(error);
+    log.error({ error }, "Spawn error");
 }

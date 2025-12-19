@@ -35,7 +35,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
 
         this.client.logger.info(`Found ${catFolders.length} categories, registering...`);
 
-        for await (const cf of catFolders) {
+        for (const cf of catFolders) {
             const meta = await this.client.utils
                 .importFile<{ default: CategoryMeta; }>(nodePath.resolve(dir, cf, "category.meta.js"))
                 .then(x => x.default);
@@ -46,7 +46,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
 
             const files = await readdir(nodePath.resolve(dir, cf)).then(paths => paths.filter(x => x !== "category.meta.js"));
 
-            for await (const file of files) {
+            for (const file of files) {
                 try {
                     const path = nodePath.resolve(dir, cf, file);
                     const command = await this.client.utils.importClass<BaseCommand>(path, this.client);
@@ -60,7 +60,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
                     this.client.logger.info(`Command ${command.meta.name} from ${cf} category is now loaded.`);
                     if (command.meta.disable === true) disabled++;
                 } catch (error) {
-                    this.client.logger.error(`Error occured while loading ${file}: ${(error as Error).message}`);
+                    this.client.logger.error({ error, file }, "Error occurred while loading command");
                 }
             }
 
@@ -94,7 +94,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
                 await message
                     .reply(`${message.author.toString()}, please wait **\`${timeLeft.toFixed(1)}\`** of cooldown time.`)
                     .then(msg => setTimeout(async () => msg.delete(), 3_500))
-                    .catch((error: unknown) => this.client.logger.error("PROMISE_ERR:", error));
+                    .catch((error: unknown) => this.client.logger.error({ error }, "PROMISE_ERR"));
 
                 return;
             }
@@ -111,7 +111,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
         try {
             command.execute(new CommandContext(message, args));
         } catch (error) {
-            this.client.logger.error(error, "COMMAND_HANDLER_ERR:");
+            this.client.logger.error({ error }, "COMMAND_HANDLER_ERR");
         } finally {
             this.client.logger.info(
                 `${message.author.tag} [${message.author.id}] is using ${command.meta.name} [${command.meta.category}] command` +

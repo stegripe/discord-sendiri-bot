@@ -43,7 +43,7 @@ export class HelpCommand extends BaseCommand {
             try {
                 await ctx.send(helpMessage);
             } catch (error) {
-                this.client.logger.error("PROMISE_ERR:", error);
+                this.client.logger.error({ error }, "PROMISE_ERR");
             }
 
             return;
