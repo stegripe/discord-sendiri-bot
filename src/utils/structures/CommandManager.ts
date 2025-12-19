@@ -35,7 +35,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
 
         this.client.logger.info(`Found ${catFolders.length} categories, registering...`);
 
-        for await (const cf of catFolders) {
+        for (const cf of catFolders) {
             const meta = await this.client.utils
                 .importFile<{ default: CategoryMeta; }>(nodePath.resolve(dir, cf, "category.meta.js"))
                 .then(x => x.default);
@@ -46,7 +46,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
 
             const files = await readdir(nodePath.resolve(dir, cf)).then(paths => paths.filter(x => x !== "category.meta.js"));
 
-            for await (const file of files) {
+            for (const file of files) {
                 try {
                     const path = nodePath.resolve(dir, cf, file);
                     const command = await this.client.utils.importClass<BaseCommand>(path, this.client);
