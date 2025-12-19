@@ -94,7 +94,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
                 await message
                     .reply(`${message.author.toString()}, please wait **\`${timeLeft.toFixed(1)}\`** of cooldown time.`)
                     .then(msg => setTimeout(async () => msg.delete(), 3_500))
-                    .catch((error: unknown) => this.client.logger.error("PROMISE_ERR:", error));
+                    .catch((error: unknown) => this.client.logger.error({ error }, "PROMISE_ERR"));
 
                 return;
             }
@@ -111,7 +111,7 @@ export class CommandManager extends Collection<string, CommandComponent> {
         try {
             command.execute(new CommandContext(message, args));
         } catch (error) {
-            this.client.logger.error(error, "COMMAND_HANDLER_ERR:");
+            this.client.logger.error({ error }, "COMMAND_HANDLER_ERR");
         } finally {
             this.client.logger.info(
                 `${message.author.tag} [${message.author.id}] is using ${command.meta.name} [${command.meta.category}] command` +
