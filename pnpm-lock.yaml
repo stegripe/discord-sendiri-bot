@@ -21,8 +21,8 @@ importers:
         specifier: ^17.2.3
         version: 17.2.3
       got:
-        specifier: ^14.6.5
-        version: 14.6.5
+        specifier: ^14.6.6
+        version: 14.6.6
       pino:
         specifier: 10.1.0
         version: 10.1.0
@@ -38,7 +38,7 @@ importers:
     devDependencies:
       '@stegripe/eslint-config':
         specifier: ^3.0.0
-        version: 3.0.0(@stylistic/eslint-plugin@5.6.1(eslint@9.39.2))(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.50.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2))(eslint-plugin-jsdoc@51.4.1(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-promise@7.2.1(eslint@9.39.2))(eslint-plugin-tsdoc@0.4.0)(eslint-plugin-unicorn@60.0.0(eslint@9.39.2))(eslint@9.39.2)(globals@14.0.0)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)
+        version: 3.0.0(@stylistic/eslint-plugin@5.6.1(eslint@9.39.2))(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.50.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2))(eslint-plugin-jsdoc@51.4.1(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-promise@7.2.1(eslint@9.39.2))(eslint-plugin-tsdoc@0.4.0)(eslint-plugin-unicorn@60.0.0(eslint@9.39.2))(eslint@9.39.2)(globals@16.5.0)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)
       '@types/node':
         specifier: ^24.10.4
         version: 24.10.4
@@ -804,8 +804,8 @@ packages:
   globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
 
-  got@14.6.5:
-    resolution: {integrity: sha512-Su87c0NNeg97de1sO02gy9I8EmE7DCJ1gzcFLcgGpYeq2PnLg4xz73MWrp6HjqbSsjb6Glf4UBDW6JNyZA6uSg==}
+  got@14.6.6:
+    resolution: {integrity: sha512-QLV1qeYSo5l13mQzWgP/y0LbMr5Plr5fJilgAIwgnwseproEbtNym8xpLsDzeZ6MWXgNE6kdWGBjdh3zT/Qerg==}
     engines: {node: '>=20'}
 
   graceful-fs@4.2.11:
@@ -1582,7 +1582,7 @@ snapshots:
 
   '@sindresorhus/is@7.1.1': {}
 
-  '@stegripe/eslint-config@3.0.0(@stylistic/eslint-plugin@5.6.1(eslint@9.39.2))(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.50.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2))(eslint-plugin-jsdoc@51.4.1(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-promise@7.2.1(eslint@9.39.2))(eslint-plugin-tsdoc@0.4.0)(eslint-plugin-unicorn@60.0.0(eslint@9.39.2))(eslint@9.39.2)(globals@14.0.0)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)':
+  '@stegripe/eslint-config@3.0.0(@stylistic/eslint-plugin@5.6.1(eslint@9.39.2))(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.50.0(eslint@9.39.2)(typescript@5.9.3))(eslint@9.39.2))(eslint-plugin-jsdoc@51.4.1(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-promise@7.2.1(eslint@9.39.2))(eslint-plugin-tsdoc@0.4.0)(eslint-plugin-unicorn@60.0.0(eslint@9.39.2))(eslint@9.39.2)(globals@16.5.0)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
       '@stylistic/eslint-plugin': 5.6.1(eslint@9.39.2)
       eslint: 9.39.2
@@ -1593,7 +1593,7 @@ snapshots:
       eslint-plugin-promise: 7.2.1(eslint@9.39.2)
       eslint-plugin-tsdoc: 0.4.0
       eslint-plugin-unicorn: 60.0.0(eslint@9.39.2)
-      globals: 14.0.0
+      globals: 16.5.0
       typescript: 5.9.3
       typescript-eslint: 8.50.0(eslint@9.39.2)(typescript@5.9.3)
 
@@ -2215,7 +2215,7 @@ snapshots:
 
   globrex@0.1.2: {}
 
-  got@14.6.5:
+  got@14.6.6:
     dependencies:
       '@sindresorhus/is': 7.1.1
       byte-counter: 0.1.0
