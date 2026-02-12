@@ -18,8 +18,8 @@ importers:
         specifier: ^3.7.1
         version: 3.7.1
       dotenv:
-        specifier: ^17.2.4
-        version: 17.2.4
+        specifier: ^17.3.1
+        version: 17.3.1
       got:
         specifier: ^14.6.6
         version: 14.6.6
@@ -582,8 +582,8 @@ packages:
     engines: {node: '>=20.18'}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
-  dotenv@17.2.4:
-    resolution: {integrity: sha512-mudtfb4zRB4bVvdj0xRo+e6duH1csJRM8IukBqfTRvHotn9+LBXB8ynAidP9zHqoRC/fsllXgk4kCKlR21fIhw==}
+  dotenv@17.3.1:
+    resolution: {integrity: sha512-IO8C/dzEb6O3F9/twg6ZLXz164a2fhTnEWb95H23Dm4OuN+92NmEAlTrupP9VW6Jm3sO26tQlqyvyi4CsnY9GA==}
     engines: {node: '>=12'}
 
   electron-to-chromium@1.5.267:
@@ -1953,7 +1953,7 @@ snapshots:
       - opusscript
       - utf-8-validate
 
-  dotenv@17.2.4: {}
+  dotenv@17.3.1: {}
 
   electron-to-chromium@1.5.267: {}
 
