@@ -28,14 +28,14 @@
     },
     "devDependencies": {
         "@stegripe/eslint-config": "^3.0.0",
-        "@types/node": "^24.10.13",
+        "@types/node": "^24.12.0",
         "eslint": "9.39.4",
-        "rimraf": "^6.1.2",
+        "rimraf": "^6.1.3",
         "typescript": "^5.9.3"
     },
     "dependencies": {
         "date-fns": "^4.1.0",
-        "discord-api-types": "^0.38.38",
+        "discord-api-types": "^0.38.42",
         "discord.js-selfbot-v13": "^3.7.1",
         "dotenv": "^17.3.1",
         "got": "^14.6.6",
