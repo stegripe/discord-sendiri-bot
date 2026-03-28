@@ -15,10 +15,10 @@ import { createEmbed } from "../../utils/functions/createEmbed.js";
 export class EvalCommand extends BaseCommand {
     public async execute(ctx: CommandContext): Promise<void> {
         const raw = ctx.args.join(" ");
-        const code = raw
-            .replace(/^\s*\n?(```(?:\S+\n)?(.*?)```|.*)$/su, (_, a: string, b: string) =>
-                a.startsWith("```") ? b : a,
-            );
+        const code = raw.replace(
+            /^\s*\n?(```(?:\S+\n)?(.*?)```|.*)$/su,
+            (_, a: string, b: string) => (a.startsWith("```") ? b : a),
+        );
 
         if (!code) {
             await ctx.reply({
