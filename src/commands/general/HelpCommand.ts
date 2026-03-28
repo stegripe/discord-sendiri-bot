@@ -1,63 +1,104 @@
-import { Message } from "discord.js-selfbot-v13";
 import { BaseCommand } from "../../structures/BaseCommand.js";
 import { CommandContext } from "../../structures/CommandContext.js";
 import { Command } from "../../utils/decorators/Command.js";
+import { createEmbed } from "../../utils/functions/createEmbed.js";
 
 @Command<typeof HelpCommand>({
     aliases: ["h", "command", "commands", "cmd", "cmds"],
     description: "Shows the command list or information for a specific command.",
-    devOnly: true,
     name: "help",
-    slash: {
-        options: [
-            {
-                type: "STRING",
-                name: "command",
-                description: "Command name to view a specific information about the command"
-            }
-        ]
-    },
-    usage: "{prefix}help [command]"
+    usage: "{prefix}help [command]",
 })
 export class HelpCommand extends BaseCommand {
-    public async execute(ctx: CommandContext): Promise<Message | undefined> {
-        let helpMessage = "";
-        const val = ctx.args[0] as string | undefined;
-        if (val === undefined) {
-            for (const category of this.client.commands.categories.values()) {
-                const isDev = this.client.config.devs.includes(ctx.author.id);
-                const cmds = category.cmds.reduce<string[]>((pr, cu) => {
-                    const cmd = this.client.commands.get(cu);
-                    if (!isDev && (cmd?.meta.devOnly ?? false)) return pr;
+    public async execute(ctx: CommandContext): Promise<void> {
+        const commandName = ctx.args[0];
 
-                    return [...pr, `\`${cmd?.meta.name}\``];
-                }, []);
+        if (commandName) {
+            const command =
+                this.client.commands.get(commandName) ??
+                this.client.commands.get(
+                    this.client.commands.aliases.get(commandName) as unknown as string,
+                );
 
-                if (cmds.length === 0) continue;
-                if (category.hide && !isDev) continue;
-
-                // Append to helpMessage instead of overwriting it
-                helpMessage += `**${category.name}**\n${cmds.join(", ")}\n\n`;
+            if (!command) {
+                await ctx.reply({
+                    embeds: [createEmbed("error", "Command not found.", true)],
+                });
+                return;
             }
 
-            try {
-                await ctx.send(helpMessage);
-            } catch (error) {
-                this.client.logger.error({ error }, "PROMISE_ERR");
-            }
+            const embed = createEmbed("info")
+                .setAuthor({
+                    name: `${this.client.user?.username} - Information: ${command.meta.name}`,
+                    iconURL: this.client.user?.displayAvatarURL(),
+                })
+                .addFields(
+                    { name: "Name", value: `\`${command.meta.name}\``, inline: true },
+                    {
+                        name: "Description",
+                        value: command.meta.description || "No description.",
+                        inline: true,
+                    },
+                    {
+                        name: "Aliases",
+                        value:
+                            command.meta.aliases && command.meta.aliases.length > 0
+                                ? command.meta.aliases.map((x) => `\`${x}\``).join(", ")
+                                : "None",
+                        inline: false,
+                    },
+                    {
+                        name: "Category",
+                        value: command.meta.category || "Uncategorized",
+                        inline: true,
+                    },
+                )
+                .setFooter({
+                    text: `${this.client.config.prefix}help [command]`,
+                    iconURL: "https://cdn.stegripe.org/images/information.png",
+                });
 
+            await ctx.reply({ embeds: [embed] });
             return;
         }
 
-        const command = this.client.commands.get(val) ??
-            this.client.commands.get(this.client.commands.aliases.get(val) as unknown as string);
+        const isDev = this.client.config.devs.includes(ctx.author.id);
+        const embed = createEmbed("info").setAuthor({
+            name: `${this.client.user?.username} - Command List`,
+            iconURL: this.client.user?.displayAvatarURL(),
+        });
 
-        if (!command) {
-            await ctx.send("Command not found.");
+        for (const category of this.client.commands.categories.values()) {
+            const cmds = category.cmds.reduce<string[]>((acc, name) => {
+                const cmd = this.client.commands.get(name);
+                if (!cmd) {
+                    return acc;
+                }
+                if (!isDev && (cmd.meta.devOnly ?? false)) {
+                    return acc;
+                }
 
-            return;
+                return [...acc, `\`${cmd.meta.name}\``];
+            }, []);
+
+            if (cmds.length === 0) {
+                continue;
+            }
+            if (category.hide && !isDev) {
+                continue;
+            }
+
+            embed.addFields({
+                name: `**${category.name.toUpperCase()}**`,
+                value: cmds.join(", "),
+            });
         }
 
-        await ctx.send(`**${command.meta.name}**\n${command.meta.description}`);
+        embed.setFooter({
+            text: `${this.client.config.prefix}help <command> for more information.`,
+            iconURL: "https://cdn.stegripe.org/images/information.png",
+        });
+
+        await ctx.reply({ embeds: [embed] });
     }
 }

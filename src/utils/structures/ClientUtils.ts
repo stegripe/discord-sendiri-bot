@@ -14,13 +14,15 @@ export class ClientUtils {
         let arr: string[] = [];
 
         if (this.client.shard) {
-            const shardUsers = await this.client.shard.broadcastEval(c => c.users.cache.map(x => x.id));
+            const shardUsers = await this.client.shard.broadcastEval((c) =>
+                c.users.cache.map((x) => x.id),
+            );
 
             for (const users of shardUsers) {
                 arr = [...arr, ...users];
             }
         } else {
-            arr = this.client.users.cache.map(x => x.id);
+            arr = this.client.users.cache.map((x) => x.id);
         }
 
         return arr.filter((x, i) => arr.indexOf(x) === i).length;
@@ -31,24 +33,26 @@ export class ClientUtils {
 
         if (this.client.shard) {
             const shardChannels = await this.client.shard.broadcastEval(
-                (c, ctx) => c.channels.cache
-                    .filter(ch => {
-                        if (ctx.textOnly) {
-                            return (
-                                ch.type === "GUILD_TEXT" ||
-                                ch.type === "GUILD_PUBLIC_THREAD" ||
-                                ch.type === "GUILD_PRIVATE_THREAD"
-                            );
-                        } else if (ctx.voiceOnly) {
-                            return ch.type === "GUILD_VOICE";
-                        }
+                (c, ctx) =>
+                    c.channels.cache
+                        .filter((ch) => {
+                            if (ctx.textOnly) {
+                                return (
+                                    ch.type === "GUILD_TEXT" ||
+                                    ch.type === "GUILD_PUBLIC_THREAD" ||
+                                    ch.type === "GUILD_PRIVATE_THREAD"
+                                );
+                            }
+                            if (ctx.voiceOnly) {
+                                return ch.type === "GUILD_VOICE";
+                            }
 
-                        return true;
-                    })
-                    .map(ch => ch.id),
+                            return true;
+                        })
+                        .map((ch) => ch.id),
                 {
-                    context: { textOnly, voiceOnly }
-                }
+                    context: { textOnly, voiceOnly },
+                },
             );
 
             for (const channels of shardChannels) {
@@ -56,20 +60,21 @@ export class ClientUtils {
             }
         } else {
             arr = this.client.channels.cache
-                .filter(ch => {
+                .filter((ch) => {
                     if (textOnly) {
                         return (
                             ch.type === "GUILD_TEXT" ||
                             ch.type === "GUILD_PUBLIC_THREAD" ||
                             ch.type === "GUILD_PRIVATE_THREAD"
                         );
-                    } else if (voiceOnly) {
+                    }
+                    if (voiceOnly) {
                         return ch.type === "GUILD_VOICE";
                     }
 
                     return true;
                 })
-                .map(ch => ch.id);
+                .map((ch) => ch.id);
         }
 
         return arr.filter((x, i) => arr.indexOf(x) === i).length;
@@ -77,7 +82,7 @@ export class ClientUtils {
 
     public async getGuildCount(): Promise<number> {
         if (this.client.shard) {
-            const guilds = await this.client.shard.broadcastEval(c => c.guilds.cache.size);
+            const guilds = await this.client.shard.broadcastEval((c) => c.guilds.cache.size);
 
             return guilds.reduce((prev, curr) => prev + curr);
         }
@@ -90,8 +95,9 @@ export class ClientUtils {
     }
 
     public async importClass<T>(pth: string, ...args: any[]): Promise<T | undefined> {
-        const file = await this.importFile<Record<string, (new (...argument: any[]) => T) | undefined>>(pth);
+        const file =
+            await this.importFile<Record<string, (new (...argument: any[]) => T) | undefined>>(pth);
         const name = path.parse(pth).name;
-        return file[name] ? new file[name](...args as unknown[]) : undefined;
+        return file[name] ? new file[name](...(args as unknown[])) : undefined;
     }
 }

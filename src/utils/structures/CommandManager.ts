@@ -37,37 +37,59 @@ export class CommandManager extends Collection<string, CommandComponent> {
 
         for (const cf of catFolders) {
             const meta = await this.client.utils
-                .importFile<{ default: CategoryMeta; }>(nodePath.resolve(dir, cf, "category.meta.js"))
-                .then(x => x.default);
+                .importFile<{ default: CategoryMeta }>(
+                    nodePath.resolve(dir, cf, "category.meta.js"),
+                )
+                .then((x) => x.default);
             let disabled = 0;
 
             this.client.logger.info(`Registering category "${meta.name}"...`);
             meta.cmds = [];
 
-            const files = await readdir(nodePath.resolve(dir, cf)).then(paths => paths.filter(x => x !== "category.meta.js"));
+            const files = await readdir(nodePath.resolve(dir, cf)).then((paths) =>
+                paths.filter((x) => x !== "category.meta.js"),
+            );
 
             for (const file of files) {
                 try {
                     const path = nodePath.resolve(dir, cf, file);
-                    const command = await this.client.utils.importClass<BaseCommand>(path, this.client);
+                    const command = await this.client.utils.importClass<BaseCommand>(
+                        path,
+                        this.client,
+                    );
 
-                    if (!command) throw new Error(`File "${file}" is not a valid command file.`);
-                    if (this.has(command.meta.name)) throw new Error(`Command "${command.meta.name}" has already been registered.`);
+                    if (!command) {
+                        throw new Error(`File "${file}" is not a valid command file.`);
+                    }
+                    if (this.has(command.meta.name)) {
+                        throw new Error(
+                            `Command "${command.meta.name}" has already been registered.`,
+                        );
+                    }
 
                     this.loadComponent(meta, path, command);
 
                     meta.cmds.push(command.meta.name);
-                    this.client.logger.info(`Command ${command.meta.name} from ${cf} category is now loaded.`);
-                    if (command.meta.disable === true) disabled++;
+                    this.client.logger.info(
+                        `Command ${command.meta.name} from ${cf} category is now loaded.`,
+                    );
+                    if (command.meta.disable === true) {
+                        disabled++;
+                    }
                 } catch (error) {
-                    this.client.logger.error({ error, file }, "Error occurred while loading command");
+                    this.client.logger.error(
+                        { error, file },
+                        "Error occurred while loading command",
+                    );
                 }
             }
 
             this.categories.set(cf, meta);
 
             if (disabled) {
-                this.client.logger.info(`${disabled} out of ${files.length} commands in ${cf} category is disabled."`);
+                this.client.logger.info(
+                    `${disabled} out of ${files.length} commands in ${cf} category is disabled."`,
+                );
             }
 
             this.client.logger.info(`Done registering ${cf} category.`);
@@ -75,12 +97,20 @@ export class CommandManager extends Collection<string, CommandComponent> {
     }
 
     public async handle(message: Message): Promise<void> {
+        if (!this.client.config.devs.includes(message.author.id)) {
+            return;
+        }
+
         const args = message.content.slice(this.client.config.prefix.length).trim().split(/\s+/u);
         const cmd = args.shift()?.toLowerCase() ?? "";
         const command = this.get(cmd) ?? this.get(this.aliases.get(cmd) as unknown as string);
 
-        if (!command || command.meta.disable === true) return;
-        if (!this.cooldowns.has(command.meta.name)) this.cooldowns.set(command.meta.name, new Collection());
+        if (!command || command.meta.disable === true) {
+            return;
+        }
+        if (!this.cooldowns.has(command.meta.name)) {
+            this.cooldowns.set(command.meta.name, new Collection());
+        }
 
         const now = Date.now();
         const timestamps = this.cooldowns.get(command.meta.name);
@@ -92,8 +122,10 @@ export class CommandManager extends Collection<string, CommandComponent> {
                 const timeLeft = (expirationTime - now) / 1_000;
 
                 await message
-                    .reply(`${message.author.toString()}, please wait **\`${timeLeft.toFixed(1)}\`** of cooldown time.`)
-                    .then(msg => setTimeout(async () => msg.delete(), 3_500))
+                    .reply(
+                        `${message.author.toString()}, please wait **\`${timeLeft.toFixed(1)}\`** of cooldown time.`,
+                    )
+                    .then((msg) => setTimeout(async () => msg.delete(), 3_500))
                     .catch((error: unknown) => this.client.logger.error({ error }, "PROMISE_ERR"));
 
                 return;
@@ -103,21 +135,33 @@ export class CommandManager extends Collection<string, CommandComponent> {
             setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
         } else {
             timestamps?.set(message.author.id, now);
-            if (this.client.config.devs.includes(message.author.id)) timestamps?.delete(message.author.id);
+            if (this.client.config.devs.includes(message.author.id)) {
+                timestamps?.delete(message.author.id);
+            }
         }
 
-        if (command.meta.devOnly === true && !this.client.config.devs.includes(message.author.id)) return;
+        if (command.meta.devOnly === true && !this.client.config.devs.includes(message.author.id)) {
+            return;
+        }
 
         try {
-            command.execute(new CommandContext(message, args));
+            await command.execute(new CommandContext(message, args));
         } catch (error) {
-            this.client.logger.error({ error }, "COMMAND_HANDLER_ERR");
+            const errorValue =
+                error instanceof Error
+                    ? {
+                          name: error.name,
+                          message: error.message,
+                          stack: error.stack,
+                      }
+                    : error;
+            this.client.logger.error({ error: errorValue }, "COMMAND_HANDLER_ERR");
         } finally {
             this.client.logger.info(
-                `${message.author.tag} [${message.author.id}] is using ${command.meta.name} [${command.meta.category}] command` +
-                `on #${(message.channel as TextChannel).name} [${message.channel.id}] channel in ${message.guild?.name} [${
-                    message.guild?.id
-                }] guild.`
+                `${message.author.tag} [${message.author.id}] is using ${command.meta.name} [${command.meta.category}] command ` +
+                    `on #${(message.channel as TextChannel).name} [${message.channel.id}] channel in ${message.guild?.name} [${
+                        message.guild?.id
+                    }] guild.`,
             );
         }
     }

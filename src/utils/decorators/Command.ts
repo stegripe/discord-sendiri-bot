@@ -2,9 +2,10 @@ import type { BaseCommand, CommandConstructor } from "../../structures/BaseComma
 import type { ClassDecorator, NonAbstractConstructor } from "../../typings/index.js";
 
 export function Command<T extends NonAbstractConstructor<BaseCommand> = CommandConstructor>(
-    meta: BaseCommand["meta"]
+    meta: BaseCommand["meta"],
 ): ClassDecorator<T, T> {
-    return target => new Proxy(target, {
-        construct: (trgt, args: [BaseCommand["client"]]) => new trgt(...args, meta)
-    });
+    return (target) =>
+        new Proxy(target, {
+            construct: (trgt, args: [BaseCommand["client"]]) => new trgt(...args, meta),
+        });
 }

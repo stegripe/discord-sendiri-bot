@@ -3,6 +3,7 @@ import { promisify } from "node:util";
 import { BaseCommand } from "../../structures/BaseCommand.js";
 import { CommandContext } from "../../structures/CommandContext.js";
 import { Command } from "../../utils/decorators/Command.js";
+import { createEmbed } from "../../utils/functions/createEmbed.js";
 
 const execPromise = promisify(exec);
 
@@ -11,12 +12,14 @@ const execPromise = promisify(exec);
     description: "Executes bash command.",
     devOnly: true,
     name: "exec",
-    usage: "{prefix}exec <bash>"
+    usage: "{prefix}exec <bash>",
 })
 export class ExecCommand extends BaseCommand {
     public async execute(ctx: CommandContext): Promise<void> {
         if (ctx.args.length === 0) {
-            await ctx.reply("Please provide a bash command to execute.");
+            await ctx.reply({
+                embeds: [createEmbed("error", "Please provide a bash command to execute.", true)],
+            });
             return;
         }
 
