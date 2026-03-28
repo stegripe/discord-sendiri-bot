@@ -3,8 +3,6 @@ import { Options } from "discord.js-selfbot-v13";
 
 export const clientOptions: ClientOptions = {
     presence: {
-        // discord.js-selfbot-v13 may crash if activities are set before client.user exists.
-        // Real activities are set later by ReadyEvent via setPresence().
         status: "dnd",
     },
     partials: ["MESSAGE", "CHANNEL", "REACTION", "USER", "GUILD_MEMBER"],

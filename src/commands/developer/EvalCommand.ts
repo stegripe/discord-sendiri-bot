@@ -16,7 +16,6 @@ export class EvalCommand extends BaseCommand {
     public async execute(ctx: CommandContext): Promise<void> {
         const raw = ctx.args.join(" ");
         const code = raw
-            // eslint-disable-next-line prefer-named-capture-group
             .replace(/^\s*\n?(```(?:\S+\n)?(.*?)```|.*)$/su, (_, a: string, b: string) =>
                 a.startsWith("```") ? b : a,
             );

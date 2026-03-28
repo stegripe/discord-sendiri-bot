@@ -56,7 +56,6 @@ export class CommandContext {
                     ? opts.content.length > 0
                     : opts.content !== undefined && opts.content !== null;
 
-            // Selfbot runtime can drop embeds or reject embed-only payloads as empty messages.
             if (hasEmbeds) {
                 const fallback = CommandContext.extractEmbedFallback(opts.embeds?.[0]);
 
