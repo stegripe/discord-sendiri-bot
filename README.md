@@ -82,3 +82,9 @@ docker compose down
 ```
 
 Make sure `.env` exists before starting containers.
+
+## License
+
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/license-CC%20BY--NC--ND%204.0-orange.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+The full legal text is in [`LICENSE`](./LICENSE).
